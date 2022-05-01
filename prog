@@ -1,0 +1,113 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class example2_TestNG_TestClass
+{
+	
+	@Test
+	public void m1() throws InterruptedException 
+	{
+		System.setProperty("webdriver.chrome.driver", 
+				"C:\\Users\\\\sanjay\\\\Downloads\\\\chromedriver_win32 (20)\\\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("https://kite.zerodha.com/");
+	
+		Thread.sleep(2000);
+			
+		driver.close();
+		
+	}
+	
+	
+	
+	
+
+}======================================================================================================================================
+[10:08 pm, 25/04/2022] Akshay Kadambande: package TestNG;
+
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+public class example3_EmailableReport
+{
+	
+	@Test
+	public void m1()               //m1 = Test case  = test method
+	{
+		Reporter.log("running test case m1",true);
+		
+	}
+	
+	@Test
+	public void m2()               //m1 = Test case  = test method
+	{
+		Reporter.log("running test case m2",true);
+	}
+	
+	
+}======================================================================================================================================
+[10:08 pm, 25/04/2022] Akshay Kadambande: package TestNG;
+
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class example4_Annotations
+{
+	@BeforeClass
+	public void openBrowser()
+	{
+		Reporter.log("--------Open browser----------",true);
+	}
+	
+	
+	@BeforeMethod
+	public void loginToApp()
+	{
+		Reporter.log("--login to app--",true);
+	}
+	
+	@Test
+	public void verifyUserID()
+	{
+		Reporter.log("running verifyUserID TC",true);
+	}
+	
+	@Test
+	public void verifyUserID1()
+	{
+		Reporter.log("running verifyUserID1 TC",true);
+	}
+	
+	@AfterMethod
+	public void logoutFromApp()
+	{
+		Reporter.log("--logout from App--",true);
+	}
+		
+
+	@AfterClass
+	public void closeBrowser()
+	{
+		Reporter.log("--------close browser----------",true);
+	}
+	
+}======================================================================================================================================
+[10:08 pm, 25/04/2022] Akshay Kadambande: package TestNG;
+
+import org.testng.annotations.Test;
+
+public class example5_Keyword1_invocationCount
+{
+	
+	@Test(invocationCount=10)
+	public void TC1()
+	{
+		System.out.println("--running TC1--");
+	}
+	
